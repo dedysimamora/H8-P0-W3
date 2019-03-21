@@ -1,7 +1,12 @@
 function ubahHuruf(kata) {
     var temp = "";
     for(i=0;i<kata.length;i++){
+        if(kata[i] === "z"){
+            temp += "a"
+        }
+        else {
         temp += String.fromCharCode(kata.charCodeAt(i) + 1);
+        }
     }
 
 return temp;

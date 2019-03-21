@@ -1,5 +1,10 @@
 function shoppingTime(memberId, money) {
     
+    var lempar = {};
+    var listbarang= [];
+    var sisamoney = money;
+
+
     if(memberId =="" || money == undefined){
         return "Mohon maaf, toko X hanya berlaku untuk member saja";
     }
@@ -7,38 +12,43 @@ function shoppingTime(memberId, money) {
         return "Mohon maaf, Uang tidak cukup";
     }
 
-    var kembali = money;
-    var belanjaan =[];
+    var barang = [
+        {   nama : "Sepatu Stacattu",
+            harga : 1500000
+        },
+        {   nama : "Baju Zoro",
+            harga : 500000
+        },
+        {
+            nama : "Baju H&N",
+            harga : 250000
+        },
+        {
+            nama : "Sweater Uniqloh",
+            harga : 175000
+        },
+        {
+            nama : "Casing Handphone",
+            harga : 50000
+        }
+        
+    ];
+    
+    lempar.memberId = memberId;
+    lempar.money = money;
+    
+    for(i=0;i<barang.length;i++){
+        if(money > barang[i].harga){
+           listbarang.push(barang[i].nama);
+            sisamoney -= barang[i].harga
+        }
+    }
+    lempar.listPurchased = listbarang;
+    lempar.changeMoney = sisamoney;
 
-    if (kembali >=  1500000 ){
-        belanjaan.push("Sepatu Stacattu");
-        kembali -= 1500000;
-    }
-    if (kembali >= 500000){
-        belanjaan.push("Baju Zoro");
-        kembali -= 500000;
-    }
-    if(kembali >= 250000){
-        belanjaan.push("Baju H&N");
-        kembali -= 250000;
-    }
-    if(kembali >= 175000){
-        belanjaan.push("Sweater Uniklooh");
-        kembali -= 175000;
-    }
-    if (kembali >=  50000){
-        belanjaan.push("casing Handphone");
-        kembali -= 50000
-    }
 
-    var member = {
-        memberId : memberId,
-        money : money,
-        listPurchased : belanjaan,
-        changeMoney : kembali
-    }
 
-return member;
+return lempar;
   }
   
   // TEST CASES

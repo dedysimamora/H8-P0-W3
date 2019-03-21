@@ -12,7 +12,7 @@ function highestScore (students) {
       }
   }
   
-
+return hasil;
 
 }
   

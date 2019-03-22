@@ -1,12 +1,23 @@
 function ubahHuruf(kata) {
     var temp = "";
+    var lib = "abcdefghijklmnopqrstuvwxyz"
     for(i=0;i<kata.length;i++){
-        if(kata[i] === "z"){
-            temp += "a"
+        
+        for(j=0;j<lib.length;j++){
+            
+            if(kata[i] === lib[j]){
+                if(kata[i] === "z"){
+                    temp += lib[0];
+                }else{
+                temp += lib[j+1];
+                }
+            }
+
+            
         }
-        else {
-        temp += String.fromCharCode(kata.charCodeAt(i) + 1);
-        }
+        
+    
+    
     }
 
 return temp;

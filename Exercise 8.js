@@ -5,18 +5,22 @@ var kcl = "abcdefghijklmnopqrstuvwxyz"
 var bsr = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
     for(i=0;i<kalimat.length;i++){
+        var g = false;
+
         for(j=0;j<kcl.length;j++){
             if(kalimat[i] === kcl[j]){
                 temp += bsr[j]
+                g = true;
             }
             else if ( kalimat[i] === bsr[j]){
                 temp += kcl[j];
+                g = true;
             }
             
             }
-            if (kalimat[i] === " "){
-                temp +=" ";
-        }
+            if (g === false){
+                temp += kalimat[i];
+            }
           
     }
 

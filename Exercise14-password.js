@@ -3,13 +3,18 @@ function changeVocals (str) {
     var voc = "aiueo"
     var vocbsr = "AIUEO"
     var can = "bjvfp"
+    var der = "BJVFP"
     newstr = "";
     
     for(i=0;i<str.length;i++){
         var found = false;
         for(j=0;j<voc.length;j++){
-            if(str[i]===voc[j] || str[i] === vocbsr[j]){
+            if(str[i]===voc[j]){
                 newstr += can[j];
+                found = true;
+            }
+            else if(str[i] === vocbsr[j]){
+                newstr += der[j];
                 found = true;
             }
            
@@ -39,7 +44,7 @@ var bsr = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     for(i=0;i<str.length;i++){
         for(j=0;j<kcl.length;j++){
             if(str[i] === kcl[j]){
-                temp += bsr[j]
+                temp += bsr[j];
             }
             else if (str[i] === bsr[j]){
                 temp += kcl[j];
@@ -75,8 +80,8 @@ return temp;
     return rs;
   }
   
-  console.log(passwordGenerator('Sergei Dragunov')); // 'VPNVGBRdJFGRFs'
-  console.log(passwordGenerator('Dimitri Wahyudiputra')); // 'BRTVPJDVYHBwJRTJMJd'
-  console.log(passwordGenerator('Alexei')); // 'JFXFLb'
-  console.log(passwordGenerator('Alex')); // 'Minimal karakter yang diinputkan adalah 5 karakter'
+   console.log(passwordGenerator('Sergei Dragunov')); // 'VPNVGBRdJFGRFs'
+   console.log(passwordGenerator('Dimitri Wahyudiputra')); // 'BRTVPJDVYHBwJRTJMJd'
+   console.log(passwordGenerator('Alexei')); // 'JFXFLb'
+   console.log(passwordGenerator('Alex')); // 'Minimal karakter yang diinputkan adalah 5 karakter'
 
